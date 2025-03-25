@@ -1,6 +1,6 @@
 #include "temperature.h"
 #include <stdio.h>
-#include <stdbool.h>
+
 
 float celsius_to_fahrenheit(float celsius) {
     return (celsius * 9/5) + 32;
