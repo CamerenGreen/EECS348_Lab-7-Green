@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "football.h"
 
 // Global counter to track combinations
 static int combination_count = 0;
@@ -49,6 +50,6 @@ void findCombinations(int score) {
 }
 
 // Hidden function that tests can access via symbol
-int __get_combination_count() {
+int get_combination_count() {
     return combination_count;
 }
