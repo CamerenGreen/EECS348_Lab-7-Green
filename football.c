@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+#include "football.h"
 
 int findCombinations(int score) {
     int count = 0;
