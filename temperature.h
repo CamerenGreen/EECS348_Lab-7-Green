@@ -1,6 +1,8 @@
 #ifndef TEMPERATURE_H
 #define TEMPERATURE_H
 
+#include <stdbool.h>
+
 // Conversion functions
 float celsius_to_fahrenheit(float celsius);
 float fahrenheit_to_celsius(float fahrenheit);
