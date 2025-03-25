@@ -1,21 +1,24 @@
-#include "football.h"
 #include <stdio.h>
 
-void findCombinations(int score) {
-    printf("\nPossible combinations of scoring plays for %d:\n\n", score);
-    for (int td2pt = 0; td2pt * 8 <= score; td2pt++) {
-        for (int tdfg = 0; tdfg * 7 <= score; tdfg++) {
-            for (int td = 0; td * 6 <= score; td++) {
+
+int findCombinations(int score) {
+    int count = 0;
+    
+    if (score <= 1) return 0;
+    
+    for (int td8 = 0; td8 * 8 <= score; td8++) {
+        for (int td7 = 0; td7 * 7 <= score; td7++) {
+            for (int td6 = 0; td6 * 6 <= score; td6++) {
                 for (int fg = 0; fg * 3 <= score; fg++) {
-                    int safety = score - (td2pt * 8 + tdfg * 7 + td * 6 + fg * 3);
-                    if (safety >= 0 && safety % 2 == 0) {
-                        safety /= 2;
-                        printf("%d TD + 2pt, %d TD + FG, %d TD, %d FG, %d Safety\n", 
-                               td2pt, tdfg, td, fg, safety);
+                    int safety = (score - (td8*8 + td7*7 + td6*6 + fg*3)) / 2;
+                    if (safety >= 0 && (td8*8 + td7*7 + td6*6 + fg*3 + safety*2) == score) {
+                        printf("%d TD+2pt, %d TD+FG, %d TD, %d FG, %d Safety\n",
+                              td8, td7, td6, fg, safety);
+                        count++;
                     }
                 }
             }
         }
     }
-    printf("\n");
+    return count;
 }
