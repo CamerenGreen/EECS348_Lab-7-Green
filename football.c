@@ -48,6 +48,7 @@ void findCombinations(int score) {
         }
     }
 }
+}
 
 // Hidden function that tests can access via symbol
 int get_combination_count() {
