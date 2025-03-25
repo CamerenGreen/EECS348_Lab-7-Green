@@ -1,5 +1,6 @@
 #include "football.h"
 
-int main(int argc, char *argv[]) {
+int main(){
+    runNFLScoreCalculator();
     return 0;
 }
