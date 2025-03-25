@@ -34,7 +34,7 @@ void categorize_temperature(float celsius) {
     } else if (celsius < 25) {
         printf("Comfortable (%.2f°C)\nAdvisory: Enjoy the pleasant weather.\n", celsius);
     } else if (celsius < 35) {
-        printf("Hot (%.2f°C)\nAdvisory: Stay hydrated.\n", celsius);
+        printf("Hot (%.2f°C)\nAdvisory: Stay hydrated!\n", celsius);
     } else {
         printf("Extreme Heat (%.2f°C)\nAdvisory: Stay indoors if possible.\n", celsius);
     }
@@ -60,7 +60,6 @@ int main() {
     printf("1. Fahrenheit\n2. Celsius\n3. Kelvin\n");
     scanf("%d", &target_scale);
     
-    // Input validation
     if (input_scale < 1 || input_scale > 3 || target_scale < 1 || target_scale > 3) {
         printf("Invalid scale selection.\n");
         return 1;
@@ -71,7 +70,6 @@ int main() {
         return 1;
     }
     
-    // Convert to Celsius first (as intermediate)
     float celsius;
     switch (input_scale) {
         case 1: celsius = fahrenheit_to_celsius(temp); break;
@@ -79,7 +77,6 @@ int main() {
         case 3: celsius = kelvin_to_celsius(temp); break;
     }
     
-    // Convert to target scale
     float result;
     switch (target_scale) {
         case 1: result = celsius_to_fahrenheit(celsius); break;
@@ -87,7 +84,6 @@ int main() {
         case 3: result = celsius_to_kelvin(celsius); break;
     }
     
-    // Output results
     printf("\nConverted temperature: %.2f ", result);
     switch (target_scale) {
         case 1: printf("°F\n"); break;
@@ -95,8 +91,6 @@ int main() {
         case 3: printf("K\n"); break;
     }
     
-    // Categorize based on Celsius
     categorize_temperature(celsius);
-    
     return 0;
 }
