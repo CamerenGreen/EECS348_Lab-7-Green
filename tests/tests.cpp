@@ -6,9 +6,9 @@ extern "C" {
 }
 
 TEST(Football, CorrectOutput) {
-    EXPECT_EQ(count_combinations(5),    1);
-    EXPECT_EQ(count_combinations(16),  14);
-    EXPECT_EQ(count_combinations(62), 652);
+    EXPECT_EQ(findCombinations(5),    1);
+    EXPECT_EQ(findCombinations(16),  14);
+    EXPECT_EQ(findCombinations(62), 652);
 }
 
 TEST(Temperature, CorrectOutput) {
