@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 void findCombinations(int score) {
-    printf("Possible combinations of scoring plays for %d:\n\n", score);
+    printf("\nPossible combinations of scoring plays for %d:\n\n", score);
     for (int td2pt = 0; td2pt * 8 <= score; td2pt++) {
         for (int tdfg = 0; tdfg * 7 <= score; tdfg++) {
             for (int td = 0; td * 6 <= score; td++) {
@@ -17,17 +17,32 @@ void findCombinations(int score) {
             }
         }
     }
+    printf("\n");
 }
 
 int main() {
+    printf("NFL Score Combination Calculator\n");
+    printf("-------------------------------\n");
+    
     int score;
     while (1) {
         printf("Enter 0 or 1 to STOP\n");
         printf("Enter the NFL score: ");
-        scanf("%d", &score);
+        
+        if (scanf("%d", &score) != 1) {
+            while (getchar() != '\n');
+            printf("Invalid input. Please enter a number.\n\n");
+            continue;
+        }
         
         if (score <= 1) {
+            printf("Exiting program...\n");
             break;
+        }
+        
+        if (score < 0) {
+            printf("Error: Score cannot be negative.\n\n");
+            continue;
         }
         
         findCombinations(score);
